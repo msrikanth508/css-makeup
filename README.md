@@ -1,6 +1,7 @@
 # dependency
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![codecov](https://codecov.io/gh/msrikanth508/css-makeup/branch/master/graph/badge.svg)](https://codecov.io/gh/msrikanth508/css-makeup)
 
 css-makeup is a tiny
 
