@@ -1,0 +1,12 @@
+body {
+  font-family: sans-serif;
+}
+
+pre[class*="language-"] {
+  margin: 0;
+  padding: 0;
+}
+
+code[class*="language-"] {
+  tab-size: 1;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>cssMakeup Examples</title>
+	<link rel="icon" href="./src/favicon.png" type="image/png" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+	<div id="app"></div>
+
+	<template>
+		<pre>
+			<code class="language-js">
+				cssMakeup.global`
+					* {
+						box-sizing: border-box;
+					}
+				`;
+			</code>
+		</pre>
+
+		<pre>
+			<code class="language-js">
+				cssMakeup.body`
+					font-family: sans-serif;
+					background-color: #fff;
+					padding: 0;
+					margin: 0;
+					font-size: 16px;
+				`;
+				
+			</code>
+		</pre>
+		<pre>
+			<code class="language-js">
+				const parapgraph = cssMakeup.p`
+					color: ${theme => theme.colors.primary};
+					font-size: ${theme => `${theme.fontSizes.l}px`};
+					padding: ${theme => `${theme.spaces[5]}px`};
+						&::first-letter {
+						color: tomato;
+						text-transform: uppercase;
+						font-size: ${theme => `${theme.fontSizes.xl}px`};
+					}
+				`;
+			</code>
+		</pre>
+		<pre>
+			<code class="language-js">
+			const btn = cssMakeup.button`
+				color: palevioletred;
+				font-size: 1em;
+				margin: 1em;
+				padding: 10px 20px;
+				border: 2px solid palevioletred;
+				border-radius: 3px;
+				&:hover {
+					border: 2px solid tomato;
+					cursor: pointer;
+				}
+			`;
+			</code>
+		</pre>
+		<pre>
+			<code class="language-js">
+				const btn = cssMakeup.button`
+					color: palevioletred;
+					font-size: 1em;
+					margin: 1em;
+					padding: 10px 20px;
+					border: 2px solid palevioletred;
+					border-radius: 3px;
+					&:hover {
+						border: 2px solid tomato;
+						cursor: pointer;
+					}
+				`;
+
+				const TomatoButton = cssMakeup(btn)`
+					color: tomato;
+					border-color: tomato;
+				`;
+			</code>
+		</pre>
+	</template>
+	<script src="src/index.js"></script>
+</body>
+
+</html>
