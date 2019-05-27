@@ -8,6 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
+    "css-makeup": "^1.0.0",
     "prismjs": "^1.16.0"
   },
   "devDependencies": {

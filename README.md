@@ -1,9 +1,9 @@
-# dependency
+# css-makeup
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![codecov](https://codecov.io/gh/msrikanth508/css-makeup/branch/master/graph/badge.svg)](https://codecov.io/gh/msrikanth508/css-makeup)
 
-css-makeup is a tiny
+A tiny library to add CSS styles in a declarative way for vanilla JS. Heavily inspired by CSS-in-JS libraries like styled-components.
 
 ## Installation
 
@@ -13,7 +13,7 @@ css-makeup is a tiny
 
 CSS Preprocessor [stylis](https://github.com/thysultan/stylis.js)
 
-## Examples
+## Usage
 
 ```js
 import cssMakeup, { setTheme } from "css-makeup";
@@ -56,7 +56,9 @@ const btn = cssMakeup.button`
 `;
 ```
 
-Check more example [here]();
+## Examples
+
+Check [demo examples](https://css-makeup.netlify.com/)
 
 ## License
 

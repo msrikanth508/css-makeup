@@ -1,8 +1,8 @@
 
 import "prismjs/themes/prism.css";
 import "./styles.css";
-import cssMakeup, { setTheme } from "../../lib/index";
-import Prism from 'prismjs';
+import cssMakeup, { setTheme } from "css-makeup";
+import 'prismjs';
 import createExamples from './example';
 
 const theme = {

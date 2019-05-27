@@ -1,5 +1,5 @@
   
-import cssMakeup from "../../lib/index";
+import cssMakeup from "css-makeup";
 
 const createExample = (root, exampleObj, pre) => {
   const { title: exampleName, preview } = exampleObj;
