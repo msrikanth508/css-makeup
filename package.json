@@ -1,7 +1,7 @@
 {
   "name": "css-makeup",
   "version": "1.0.0",
-  "description": "Declarative CSS styles for vanilla JS",
+  "description": "A tiny library to add CSS styles in a declarative way for vanilla JS, highly inspired by CSS-in-JS libraries like styled-components.",
   "main": "./lib/index.js",
   "scripts": {
     "clean": "rimraf lib",

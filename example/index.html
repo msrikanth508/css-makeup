@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html>
+  <head>
+    <title>cssMakeup Examples</title>
+    <link rel="icon" href="./src/favicon.png" type="image/png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
 
-<head>
-	<title>cssMakeup Examples</title>
-	<link rel="icon" href="./src/favicon.png" type="image/png" />
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
-
-<body>
-	<div id="app"></div>
-
-	<template>
-		<pre>
+  <body>
+    <div id="app"></div>
+    <template>
+      <pre>
 			<code class="language-js">
 				cssMakeup.global`
 					* {
@@ -21,8 +19,7 @@
 				`;
 			</code>
 		</pre>
-
-		<pre>
+      <pre>
 			<code class="language-js">
 				cssMakeup.body`
 					font-family: sans-serif;
@@ -34,7 +31,7 @@
 				
 			</code>
 		</pre>
-		<pre>
+      <pre>
 			<code class="language-js">
 				const parapgraph = cssMakeup.p`
 					color: ${theme => theme.colors.primary};
@@ -48,7 +45,7 @@
 				`;
 			</code>
 		</pre>
-		<pre>
+      <pre>
 			<code class="language-js">
 			const btn = cssMakeup.button`
 				color: palevioletred;
@@ -64,7 +61,7 @@
 			`;
 			</code>
 		</pre>
-		<pre>
+      <pre>
 			<code class="language-js">
 				const btn = cssMakeup.button`
 					color: palevioletred;
@@ -85,8 +82,72 @@
 				`;
 			</code>
 		</pre>
-	</template>
-	<script src="src/index.js"></script>
-</body>
-
+    </template>
+    <template>
+      <h2 id="css-makeup">css-makeup</h2>
+      <p>
+        <a href="https://opensource.org/licenses/MIT" target="_blank"
+          ><img
+            src="https://img.shields.io/badge/License-MIT-blue.svg"
+            alt="License: MIT"
+        /></a>
+        <a href="https://codecov.io/gh/msrikanth508/css-makeup" target="_blank"
+          ><img
+            src="https://codecov.io/gh/msrikanth508/css-makeup/branch/master/graph/badge.svg"
+            alt="codecov"
+        /></a>
+      </p>
+      <p>
+        A tiny library to add CSS styles in a declarative way for vanilla JS,
+        highly inspired by CSS-in-JS libraries like styled-components.
+      </p>
+      <h2 id="installation">Installation</h2>
+      <pre><code class="language-js">npm install --save css-makeup</code></pre>
+      <h2 id="usage">Usage</h2>
+      <pre
+        class="language-js"
+      ><code class="language-js">import cssMakeup, { setTheme } from &quot;css-makeup&quot;;
+	
+			//  Application Theme
+			const theme = {
+				spaces: [0, 4, 8, 12, 16, 20, 24, 28, 32],
+				colors: {
+				  primary: "#009688",
+				},
+				fontSizes: {
+				  s: 12,
+				  m: 16,
+				  l: 20,
+				  xl: 24,
+				}
+			  };
+			
+			// set theme values
+			setTheme(theme);
+			</code></pre>
+    </template>
+    <template>
+      <h2 id="dependency">Credit</h2>
+      <p>
+        To process all complex css queries, this library has a dependency on
+        <a href="https://github.com/thysultan/stylis.js" target="_blank"
+          >stylis</a
+        >
+        which is a CSS Preprocessor.
+      </p>
+      <h2 id="limitation">Limitation</h2>
+      <p>
+        Scope of this library is limited and it only supports
+        <a
+          target="_blank"
+          href="https://github.com/msrikanth508/css-makeup/blob/master/src/htmlTags.js"
+          >these</a
+        >
+        HTML tags/elements.
+      </p>
+      <h2 id="license">License</h2>
+      <p>MIT © Srikanth Mangipudi</p>
+    </template>
+    <script src="src/index.js"></script>
+  </body>
 </html>

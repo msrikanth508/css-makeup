@@ -1,7 +1,7 @@
 {
-  "name": "makeup-example",
+  "name": "css-makeup-example",
   "version": "1.0.0",
-  "description": "",
+  "description": "css-makeup demo examples",
   "main": "index.html",
   "scripts": {
     "start": "parcel index.html --open",

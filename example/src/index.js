@@ -44,13 +44,16 @@ const header = cssMakeup.header`
   width: 100%;
   height: 60px;
   background: ${theme => theme.colors.primary};
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const contentContainer = cssMakeup.section`
-  // background-color: #efefef;
   max-width: 1080px;
   margin: 60px auto 20px;
-  padding: 20px 4px;
+  padding: 20px 10px;
 `;
 
 const btn = cssMakeup.button`
@@ -88,6 +91,9 @@ p.innerText = `Lorem Ipsum is simply dummy text of the printing and typesetting 
 
 const Extended = cssMakeup.div`
   display: flex;
+  @media only screen and (max-width: 420px) {
+    flex-direction: column;
+  }
 `;
 
 Extended.appendChild(btn.cloneNode(true));
@@ -96,23 +102,28 @@ Extended.appendChild(TomatoButton);
 const examples = [
   {
     title: "Global styles",
-    preview: null
+    preview: null,
+    desc: 'Add styles to entire page, this will create style tag and add styles dynamically.'
   },
   {
     title: "Body",
-    preview: null
+    preview: null,
+    desc: 'Add styles HTML body tag.',
   },
   {
     title: "Paragraph",
-    preview: p
+    preview: p,
+    desc: 'Paragraph styles.',
   },
   {
     title: "Button",
-    preview: btn
+    preview: btn,
+    desc: 'Button styles.',
   },
   {
     title: "Extended Button",
-    preview: Extended
+    preview: Extended,
+    desc: `Why can't we just reuse existing code? Extend from existing elements.`,
   },
 ];
 
@@ -120,14 +131,27 @@ const app = document.getElementById('app');
 
 const title = cssMakeup.h3`
   text-align: center;
-  color: #fff;
+  
 `;
 title.innerText = 'css-makeup';
+
+const githubLogo = cssMakeup.a`
+  text-decoration: none;
+  position: absolute;
+  right: 10px;
+  color: #fff;
+  &:hover {
+    text-decoration: underline;
+    color: black;
+  }
+`;
+githubLogo.setAttribute('href', 'https://github.com/msrikanth508/css-makeup');
+githubLogo.innerText = 'GitHub';
+githubLogo.target = "_blank";
 header.appendChild(title);
+header.appendChild(githubLogo);
 
 app.appendChild(header);
 app.appendChild(contentContainer);
 
-createExamples(contentContainer, examples)
-
-// console.log(temp)
+createExamples(contentContainer, examples);

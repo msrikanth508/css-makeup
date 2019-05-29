@@ -2,7 +2,10 @@
 import cssMakeup from "css-makeup";
 
 const createExample = (root, exampleObj, pre) => {
-  const { title: exampleName, preview } = exampleObj;
+  const { title: exampleName, preview, desc } = exampleObj;
+  const description = cssMakeup.p``;
+  description.innerText = desc;
+
   const codeTag = cssMakeup(pre)`
     @media only screen and (min-width: 600px) {
       flex-grow: 1;
@@ -18,7 +21,9 @@ const createExample = (root, exampleObj, pre) => {
     background: black;
   `;
 
-  const title = cssMakeup.h2``;
+  const title = cssMakeup.h3`
+    margin-bottom: 0;
+  `;
   const example = cssMakeup.section`
       display: flex;
       flex-direction: column;
@@ -33,6 +38,7 @@ const createExample = (root, exampleObj, pre) => {
 
   title.innerText = exampleName;
   example.appendChild(title);
+  example.appendChild(description);
   flex.appendChild(codeTag);
 
   if (preview) {
@@ -46,11 +52,21 @@ const createExample = (root, exampleObj, pre) => {
 
 
 export default (contentContainer, examples) => {
-    const template = document.querySelector("template");
-    const preTags = template.content.querySelectorAll("pre");
-    
+    const [exampleTemplate, readmeTemplate, lastTemplate] = document.querySelectorAll("template");
+    const preTags = exampleTemplate.content.querySelectorAll("pre");
+    const readMe = cssMakeup.section`
+      pre {
+        padding: 20px;
+      }
+    `;
+    readMe.innerHTML = readmeTemplate.innerHTML;
+    contentContainer.appendChild(readMe);
+
     examples.forEach((example, i) => {
-      console.log(example);
       createExample(contentContainer, example, preTags[i]);
     });
+
+    const last = cssMakeup.section``;
+    last.innerHTML = lastTemplate.innerHTML;
+    contentContainer.appendChild(last);
 };
