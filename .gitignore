@@ -42,3 +42,6 @@ lib
 
 others
 .DS_Store
+
+example/.cache/*
+example/dist/*

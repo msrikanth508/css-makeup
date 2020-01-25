@@ -1,10 +1,9 @@
-  
 import cssMakeup from "css-makeup";
 
 const createExample = (root, exampleObj, pre) => {
   const { title: exampleName, preview, desc } = exampleObj;
   const description = cssMakeup.p``;
-  description.innerText = desc;
+  description.innerHTML = desc;
 
   const codeTag = cssMakeup(pre)`
     @media only screen and (min-width: 600px) {
@@ -50,23 +49,26 @@ const createExample = (root, exampleObj, pre) => {
   root.appendChild(example);
 };
 
-
 export default (contentContainer, examples) => {
-    const [exampleTemplate, readmeTemplate, lastTemplate] = document.querySelectorAll("template");
-    const preTags = exampleTemplate.content.querySelectorAll("pre");
-    const readMe = cssMakeup.section`
+  const [
+    exampleTemplate,
+    readmeTemplate,
+    lastTemplate
+  ] = document.querySelectorAll("template");
+  const preTags = exampleTemplate.content.querySelectorAll("pre");
+  const readMe = cssMakeup.section`
       pre {
         padding: 20px;
       }
     `;
-    readMe.innerHTML = readmeTemplate.innerHTML;
-    contentContainer.appendChild(readMe);
+  readMe.innerHTML = readmeTemplate.innerHTML;
+  contentContainer.appendChild(readMe);
 
-    examples.forEach((example, i) => {
-      createExample(contentContainer, example, preTags[i]);
-    });
+  examples.forEach((example, i) => {
+    createExample(contentContainer, example, preTags[i]);
+  });
 
-    const last = cssMakeup.section``;
-    last.innerHTML = lastTemplate.innerHTML;
-    contentContainer.appendChild(last);
+  const last = cssMakeup.section``;
+  last.innerHTML = lastTemplate.innerHTML;
+  contentContainer.appendChild(last);
 };

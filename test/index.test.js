@@ -1,35 +1,35 @@
-import cssMakeup, { setTheme, getTheme } from '../src';
+import cssMakeup, { setTheme, getTheme } from "../src";
 
-describe('cssMakeup test.', () => {
+describe("cssMakeup test.", () => {
   afterEach(() => {
-    if(document.styleSheets) {
-      for(let prop in document.styleSheets) {
+    if (document.styleSheets) {
+      for (let prop in document.styleSheets) {
         delete document.styleSheets[prop];
       }
     }
-    document.body.innerHTML = '';
+    document.body.innerHTML = "";
     // [].prototype.slice.call(document.styleSheets).
   });
 
-  it('should set theme value', () => {
+  it("should set theme value", () => {
     const theme = {
-        spaces: [0, 4, 8, 12, 16, 20, 24, 28, 32],
-        colors: {
-          tomato: "tomato"
-        },
-        fontSizes: {
-          s: 12,
-          m: 16,
-          l: 20,
-          xl: 24
-        }
-      };
-      // set application Theme
-      setTheme(theme);
-      expect(getTheme()).toMatchObject(theme);
+      spaces: [0, 4, 8, 12, 16, 20, 24, 28, 32],
+      colors: {
+        tomato: "tomato"
+      },
+      fontSizes: {
+        s: 12,
+        m: 16,
+        l: 20,
+        xl: 24
+      }
+    };
+    // set application Theme
+    setTheme(theme);
+    expect(getTheme()).toMatchObject(theme);
   });
 
-  it('should create style tag with class name', () => {
+  it("should create style tag with class name", () => {
     const p = cssMakeup.p`
       color: ${theme => theme.colors.tomato};
       border: 1px solid #c4c4c4;
@@ -43,16 +43,18 @@ describe('cssMakeup test.', () => {
     `;
     p.innerText = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`;
     document.body.appendChild(p);
-      
+
     const [className] = p.classList;
-    expect(className).toBe('css_makeup89_0');
-    expect(p.innerText).toBe(`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`);
+    expect(className).toContain("style-");
+    expect(p.innerText).toBe(
+      `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.`
+    );
 
     const [first] = document.styleSheets;
     expect(first.cssRules[0].selectorText).toBe(`.${className}`);
   });
 
-  it('should create button', () => {
+  it("should create button", () => {
     const btn = cssMakeup.button`
       color: palevioletred;
       font-size: 1em;
@@ -70,16 +72,18 @@ describe('cssMakeup test.', () => {
     document.body.appendChild(btn);
 
     const [className] = btn.classList;
-    expect(className).toBe('css_makeup89_1');
+    expect(className).toContain("style-");
 
     const [first] = document.styleSheets;
     const css = first.cssRules[0].style.cssText;
-    expect(css).toBe(`color: palevioletred; font-size: 1em; margin: 1em; padding: 0.25em 1em; border: 2px solid palevioletred; border-radius: 3px;`);
+    expect(css).toBe(
+      `color: palevioletred; font-size: 1em; margin: 1em; padding: 0.25em 1em; border: 2px solid palevioletred; border-radius: 3px;`
+    );
     expect(first.cssRules[0].selectorText).toBe(`.${className}`);
   });
 
-  it('should extend styles', () => {
-    const color = 'tomoto';
+  it("should extend styles", () => {
+    const color = "tomoto";
     const btn = cssMakeup.button`
       color: palevioletred;
       font-size: 1em;
@@ -99,18 +103,18 @@ describe('cssMakeup test.', () => {
     `;
     TomatoButton.value = "Normal Button";
     document.body.appendChild(TomatoButton);
-      
+
     const [className1, className2] = TomatoButton.classList;
-    expect(className1).toBe('css_makeup89_2');
-    expect(className2).toBe('css_makeup89_3');
+    expect(className1).toContain("style-");
+    expect(className2).toContain("style-");
   });
 
-  it('should throw error', () => {
-    const t = () => setTheme('');
+  it("should throw error", () => {
+    const t = () => setTheme("");
     expect(t).toThrow(TypeError);
   });
 
-  it('should add global styles', () => {
+  it("should add global styles", () => {
     cssMakeup.global`
       * {
         box-sizing: border-box;
@@ -119,14 +123,14 @@ describe('cssMakeup test.', () => {
 
     const [first] = document.styleSheets;
     const css = first.cssRules[0].style.cssText;
-    expect(css).toBe('box-sizing: border-box;');
+    expect(css).toBe("box-sizing: border-box;");
   });
 
-  it('should add body styles', () => {
+  it("should add body styles", () => {
     cssMakeup.body`
       background: #cdcdcd;
     `;
     const className = document.body.classList[0];
-    expect(className).toBe('css_makeup89_4');
-  })
+    expect(className).toContain("style-");
+  });
 });

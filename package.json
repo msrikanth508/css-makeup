@@ -1,6 +1,6 @@
 {
   "name": "css-makeup",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "A tiny library to add CSS styles in a declarative way for vanilla JS, highly inspired by CSS-in-JS libraries like styled-components.",
   "main": "./lib/index.js",
   "scripts": {
@@ -19,7 +19,8 @@
     "src"
   ],
   "dependencies": {
-    "stylis": "3.5.4"
+    "stylis": "3.5.4",
+    "uniqid": "^5.2.0"
   },
   "keywords": [
     "css",

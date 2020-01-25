@@ -1,14 +1,13 @@
-
 import "prismjs/themes/prism.css";
 import "./styles.css";
-import cssMakeup, { setTheme } from "css-makeup";
-import 'prismjs';
-import createExamples from './example';
+import cssMakeup, { setTheme, getTheme } from "css-makeup";
+import "prismjs";
+import createExamples from "./example";
 
 const theme = {
   spaces: [0, 4, 8, 12, 16, 20, 24, 28, 32],
   colors: {
-    primary: "#009688",
+    primary: "#009688"
   },
   fontSizes: {
     s: 12,
@@ -20,6 +19,8 @@ const theme = {
 
 // set application Theme
 setTheme(theme);
+
+console.log("set", getTheme());
 
 // set Global styles
 cssMakeup.global`
@@ -68,14 +69,18 @@ const btn = cssMakeup.button`
     cursor: pointer;
   }
 `;
+btn.innerText = "Normal Button";
 btn.value = "Normal Button";
+btn.onclick = e => {
+  alert(e.target.value);
+};
 
 const TomatoButton = cssMakeup(btn)`
   color: tomato;
   border-color: tomato;
 `;
+TomatoButton.innerText = "Tomato Button";
 TomatoButton.value = "Tomato Button";
-
 
 const p = cssMakeup.p`
   color: ${theme => theme.colors.primary};
@@ -103,37 +108,39 @@ const examples = [
   {
     title: "Global styles",
     preview: null,
-    desc: 'Add styles to entire page, this will create style tag and add styles dynamically.'
+    desc:
+      "Add styles to entire page, this will create style tag and add styles dynamically."
   },
   {
     title: "Body",
     preview: null,
-    desc: 'Add styles HTML body tag.',
+    desc: "Add styles HTML body tag."
   },
   {
     title: "Paragraph",
     preview: p,
-    desc: 'Paragraph styles.',
+    desc: "Paragraph styles."
   },
   {
     title: "Button",
     preview: btn,
-    desc: 'Button styles.',
+    desc: "Button styles."
   },
   {
     title: "Extended Button",
     preview: Extended,
-    desc: `Why can't we just reuse existing code? Extend from existing elements.`,
-  },
+    desc: `Extend styles from existing elements.
+          <br /><br /><i>This function doesn't copy event listeners added using addEventListener() or those assigned to element properties (e.g., node.onclick = someFunction). Check <a href="https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode">cloneNode</a> API for more info.</i>`
+  }
 ];
 
-const app = document.getElementById('app');
+const app = document.getElementById("app");
 
 const title = cssMakeup.h3`
   text-align: center;
   
 `;
-title.innerText = 'css-makeup';
+title.innerText = "css-makeup";
 
 const githubLogo = cssMakeup.a`
   text-decoration: none;
@@ -145,8 +152,9 @@ const githubLogo = cssMakeup.a`
     color: black;
   }
 `;
-githubLogo.setAttribute('href', 'https://github.com/msrikanth508/css-makeup');
-githubLogo.innerText = 'GitHub';
+
+githubLogo.setAttribute("href", "https://github.com/msrikanth508/css-makeup");
+githubLogo.innerText = "GitHub";
 githubLogo.target = "_blank";
 header.appendChild(title);
 header.appendChild(githubLogo);

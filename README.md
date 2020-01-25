@@ -18,7 +18,7 @@ import cssMakeup, { setTheme } from "css-makeup";
 const theme = {
   spaces: [0, 4, 8, 12, 16, 20, 24, 28, 32],
   colors: {
-    primary: "#009688",
+    primary: "#009688"
   },
   fontSizes: {
     s: 12,
@@ -59,7 +59,8 @@ Check [demo examples](https://css-makeup.netlify.com/)
 
 ## Dependency
 
-To process all complex css queries, this library has a dependency on [stylis](https://github.com/thysultan/stylis.js) which is a CSS Preprocessor.
+[stylis](https://github.com/thysultan/stylis.js).
+[uniqid](https://www.npmjs.com/package/uniqid)
 
 ## Limitation
 
@@ -67,4 +68,4 @@ Scope of this library is limited and it only supports [these](https://github.com
 
 ## License
 
-MIT © Srikanth Mangipudi
+MIT
